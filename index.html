@@ -7,114 +7,296 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-blue: #0a1128;
+            /* Adjusted to match the dark, stormy background of 10-image (45).jpg */
+            --storm-dark: #121518;
+            --storm-slate: #1c2227;
             --gold: #d4af37;
-            --light-gold: #ffdf00;
-            --marble: #e0e0e0;
+            --light-gold: #f1d592;
+            --marble: #e2e5e8;
         }
 
         body {
-            background-color: var(--deep-blue);
+            background-color: var(--storm-dark);
             color: var(--marble);
             font-family: 'Lora', serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(to bottom, #1a2a6c, #0a1128);
+            padding: 60px 20px 40px 20px;
+            /* Gradient mirrors the dark storm clouds meeting the golden light burst at the horizon */
+            background: linear-gradient(to bottom, #090b0d, #1c2227);
         }
 
-        h1, h2 {
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            color: var(--marble);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .book-cover-container {
+            margin-bottom: 40px;
+        }
+
+        .book-cover {
+            max-width: 100%;
+            width: 350px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(214, 175, 55, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .book-cover:hover {
+            transform: scale(1.02);
+        }
+
+        /* Distinct styling for your main punchy hook */
+        .main-hook {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin: 30px auto;
+            max-width: 650px;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+
+        .blurb-text {
+            font-size: 1.15rem;
+            text-align: left;
+            background-color: var(--storm-slate);
+            padding: 30px;
+            border-radius: 6px;
+            border-left: 3px solid var(--gold);
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .blurb-text p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .blurb-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
+            color: #0e1114;
+            padding: 18px 45px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            margin: 20px 0 40px 0;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #f1d592 0%, #ffffff 50%, #f1d592 100%);
+            color: #000;
+        }
+
+        .author-section {
+            text-align: left;
+            margin-top: 50px;
+        }
+
+        h2 {
             font-family: 'Cinzel', serif;
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 2px;
+            border-bottom: 1px solid rgba(214, 175, 55, 0.3);
+            padding-bottom: 10px;
+            font-size: 1.8rem;
         }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: rgba(226, 229, 232, 0.9);
+        }  
+
+        footer {
+            background-color: #090b0d;
+            margin-top: 60px;
+            border-top: 1px solid rgba(214, 175, 55, 0.1);
         }
-
-        .book-cover {
-            max-width: 350px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            border: 2px solid var(--gold);
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
-    color: #0a1128;
-    padding: 18px 45px;
-    text-decoration: none;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    margin-top: 25px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-    background: linear-gradient(135deg, #f1d592 0%, #ffffff 50%, #f1d592 100%);
-    color: #000;
-}
-
-        .blurb {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin: 40px 0;
-        }
-      p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}  
     </style>
 </head>
 <body>
 
 <header>
-    
-    
+    <h1>Jesus vs. The Pantheon</h1>
+    <div class="subtitle">Miracles That Conquered The Ancient World</div>
 </header>
 
 <div class="container">
-    <img src="cover.jpg" alt="Jesus vs. The Pantheon Book Cover" class="book-cover">
-
-    <div class="blurb">
-        "The Untold Story of how the miracles of Christ systematically dismantled the greatest empires of the ancient gods."
+    <div class="book-cover-container">
+        <!-- Be sure to rename your image file to "cover.jpg" in your repository, or change this src to "10-image (45).jpg" -->
+        <img src="cover.jpg" alt="Jesus vs. The Pantheon Book Cover" class="book-cover">
     </div>
 
-    <p>Discover the historical and biblical journey of how the miracles of Jesus confronted and overcame the greatest deities of the Greco-Roman world.</p>
+    <!-- Your definitive back-cover hook -->
+    <div class="main-hook">
+        THE MIRACLES OF JESUS WERE NOT RANDOM ACTS OF KINDNESS. THEY WERE ACTS OF WAR.
+    </div>
 
-    <a href="#" class="cta-button">Pre-Order on Amazon</a>
+    <!-- Your full KDP back-cover blurb formatted for easy reading -->
+    <div class="blurb-text">
+        <p>In <em>Jesus vs. The Pantheon</em>, Travis Williams reveals the cosmic battle behind the earthly ministry of Christ. The ancient world was suffocating under the dominion of the Pantheon—Zeus, Poseidon, Apollo, and a host of territorial spirits. When Jesus stepped onto the scene, He didn’t just preach a new religion; He systematically dismantled the old one.</p>
+        
+        <p><strong>Discover the hidden strategy behind the miracles:</strong></p>
+        
+        <p>Rich in historical detail and theological insight, this book invites you to read the Gospels in high definition—and see the miracles for what they truly were: the weapons of a King who came to reclaim His creation.</p>
+        
+        <p style="font-style: italic; text-align: center; margin-top: 25px; color: var(--gold);">
+            The temples are in ruins. The oracles are silent. The war is over.<br>Come and see how the King took His throne.
+        </p>
+    </div>
 
-    <hr style="margin: 50px 0; border: 0; border-top: 1px solid var(--gold);">
+    <!-- Link updated to match the final step of KDP production -->
+    <a href="#" class="cta-button">Available on Amazon</a>
+<!-- Interactive Excerpt Section -->
+    <div class="excerpt-section" style="margin: 40px 0; text-align: left;">
+        <style>
+            /* Styling for the collapsible container */
+            details.excerpt-container {
+                background-color: var(--storm-slate);
+                border: 1px solid rgba(214, 175, 55, 0.3);
+                border-radius: 4px;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+            }
 
-    <h2 style="font-family: 'Cinzel', serif; color: #d4af37;">About Travis Williams</h2>
-    <p>Travis Williams is an ordained minister in the Zion United Baptist Convention of The Bahamas, where he serves as a dedicated teacher of the Scriptures at Mt. Calvary Baptist Church. For over two decades, he has pursued a deep personal study of biblical prophecy and biblical history, with a particular passion for uncovering the rich historical and cultural contexts of the Bible.</p>
+            /* Styling for the clickable header */
+            details.excerpt-container summary {
+                font-family: 'Cinzel', serif;
+                color: var(--gold);
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                cursor: pointer;
+                outline: none;
+                padding: 10px 0;
+                list-style: none; /* Removes default arrow on some browsers */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-<p>His ministry is firmly rooted in a commitment to Christian education. Travis has been trained to equip Sunday School teachers through the Caribbean Bible Fellowship (CBF) and regularly leads Bible studies in his local congregation. Driven by a desire to encounter the Scriptures in their original depth and beauty, he has also completed studies in Biblical Hebrew at the Israel Institute of Biblical Studies (IIBS).</p>
+            /* Custom indicator arrow */
+            details.excerpt-container summary::after {
+                content: '▼';
+                font-size: 0.9rem;
+                transition: transform 0.3s ease;
+                color: var(--gold);
+            }
 
-<p><em>Jesus vs. The Pantheon</em> is the culmination of years of careful research into the dramatic confrontation between the Kingdom of God and the mythological powers of the ancient world. Travis writes with deep conviction that history is far more than a record of human events—it is a living testimony to the absolute supremacy of Christ over every rival power, whether ancient or modern.</p>
-    
+            /* Rotates the arrow when the excerpt is open */
+            details.excerpt-container[open] summary::after {
+                transform: rotate(180deg);
+            }
+
+            /* Adds a subtle separator line when open */
+            details.excerpt-container[open] summary {
+                border-bottom: 1px solid rgba(214, 175, 55, 0.2);
+                margin-bottom: 20px;
+            }
+
+            /* Smooth padding for the reading text inside */
+            .excerpt-content {
+                padding: 10px 5px;
+                max-height: 500px;
+                overflow-y: auto; /* Adds a clean internal scrollbar if the excerpt is long */
+                padding-right: 10px;
+            }
+
+            /* Custom scrollbar styling to match the storm theme */
+            .excerpt-content::-webkit-scrollbar {
+                width: 6px;
+            }
+            .excerpt-content::-webkit-scrollbar-track {
+                background: var(--storm-dark);
+            }
+            .excerpt-content::-webkit-scrollbar-thumb {
+                background: var(--gold);
+                border-radius: 3px;
+            }
+        </style>
+
+        <details class="excerpt-container">
+            <summary>Preview Chapter 1: Read an Excerpt</summary>
+            <div class="excerpt-content">
+                
+                <!-- PASTE YOUR MANUSCRIPT EXCERPT TEXT BELOW THIS LINE -->
+                <h3 style="font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0;">Chapter 1: The Cosmic Battleground</h3>
+                
+                <p>The world into which Jesus was born was not religiously empty, nor spiritually neutral. It was crowded. The air of the ancient Mediterranean world was thick with divine claims, sacred lineages, temples, and stories of gods who had entered history before. Long before Bethlehem, humanity had already been trained to expect divine intervention, celestial offspring, and saviors sent from above.
+This is essential to understand because the Advent did not introduce the idea of a god entering the world. It challenged how such an entrance was understood.
+</p>
+                
+                <p>In the Greco-Roman imagination, the boundary between heaven and earth was porous. The gods descended freely. They appeared in disguise, in splendor, in violence, and in seduction. Their presence was often overwhelming, their will unquestioned, their purposes enforced rather than explained. Divine birth narratives did not surprise the ancient world; they were familiar, expected, and often celebrated. Sons of gods walked among men already, at least according to the stories Rome and Greece told themselves. 
+By the time of the Roman Empire, these stories were not merely myths recited for entertainment. They undergirded identity, authority, and power. Cities traced their origins to divine founders. Emperors claimed descent from the gods. The language of “sonship” was political as much as it was religious. To be born of a god was to possess legitimacy, destiny, and dominion. 
+</p>
+                
+                <p>The ancient world was familiar with beings who stood between heaven and earth. Demigods occupied this space—figures born of divine power and human flesh, yet fully belonging to neither. Their existence was a compromise of sorts, a blending that produced strength without wholeness. They were impressive, but unstable; elevated, yet fractured.
+This hybrid nature was not accidental. It reflected the way the gods entered the world. Divine power pressed itself into human form without fully embracing human limitation. The result was a race of intermediaries who magnified conflict rather than resolving it. They carried divine attributes, but not divine faithfulness. They bore strength, but not restoration. The incarnation refuses this model entirely.
+Jesus is not a mixture of God and humanity, nor a negotiated middle ground between realms. He is not partially divine or selectively human. He is fully God and fully man—not by dilution, but by union. Nothing is lost, nothing corrupted, nothing divided. 
+This distinction matters because hybridization always preserves hierarchy. The demigod stands above humanity while remaining below the gods. He reinforces the distance between heaven and earth rather than healing it. The incarnation does the opposite. God does not remain aloof, nor does He create a superior intermediary to rule in His place. He enters humanity fully, without reserve, and without rivalry. There is no tainted lineage here. No corrupted flesh. No divided will.
+Where the pantheon produces figures marked by inner conflict, the incarnation produces unity. Where myth generates power that cannot save, the incarnation generates humility that will. This is not a refinement of ancient ideas. It is their undoing.
+</p>
+                <!-- PASTE YOUR MANUSCRIPT EXCERPT TEXT ABOVE THIS LINE -->
+
+            </div>
+        </details>
+    </div>
+    <div class="author-section">
+        <h2>About Travis Williams</h2>
+        <p>Travis Williams is an ordained minister in the Zion United Baptist Convention of The Bahamas, where he serves as a dedicated teacher of the Scriptures at Mt. Calvary Baptist Church. For over two decades, he has pursued a deep personal study of biblical prophecy and biblical history, with a particular passion for uncovering the rich historical and cultural contexts of the Bible.</p>
+
+        <p>His ministry is firmly rooted in a commitment to Christian education. Travis has been trained to equip Sunday School teachers through the Caribbean Bible Fellowship (CBF) and regularly leads Bible studies in his local congregation. Driven by a desire to encounter the Scriptures in their original depth and beauty, he has also completed studies in Biblical Hebrew at the Israel Institute of Biblical Studies (IIBS).</p>
+
+        <p><em>Jesus vs. The Pantheon</em> is the culmination of years of careful research into the dramatic confrontation between the Kingdom of God and the mythological powers of the ancient world. Travis writes with deep conviction that history is far more than a record of human events—it is a living testimony to the absolute supremacy of Christ over every rival power, whether ancient or modern.</p>
+    </div>
 </div>
 
 <footer>
-    <p style="text-align: center; padding: 20px; font-size: 0.8rem;">&copy; 2026 Travis Williams. All rights reserved.</p>
+    <p style="text-align: center; padding: 20px; font-size: 0.8rem; margin: 0;">&copy; 2026 Travis Williams. All rights reserved.</p>
 </footer>
 
 </body>
